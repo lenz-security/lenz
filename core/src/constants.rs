@@ -1,0 +1,5 @@
+
+pub const MAX_RISK_SCORE: u8 = 100;
+pub const THRESHOLD_HIGH_RISK: u8 = 80;
+pub const PROGRAM_ID: &str = "Audit11111111111111111111111111111111111111";
+pub const SCAN_TIMEOUT_MS: u64 = 500;

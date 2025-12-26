@@ -24,3 +24,5 @@ impl AuditEngine {
         })
     }
 }
+
+// Performance: Zero-copy scanning enabled

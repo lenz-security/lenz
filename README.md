@@ -27,12 +27,18 @@
 Unlike traditional audits that take weeks, LENZ delivers a comprehensive risk score in milliseconds, integrated directly into wallets and DEX interfaces via our SDK.
 
 ---
-## Features
+## Architecture
 
-* **Instant Audit:** Analyze new token launches immediately upon deployment.
-* **Honeypot Detection:** Identifies code logic that prevents selling.
-* **Authority Tracking:** Alerts if mint/freeze authorities are still active.
-* **Type-Safe SDK:** Complete TypeScript bindings for frontend integration.
+### The "Microscope" Engine (Rust Core)
+The core analysis engine, written in pure Rust for performance.
+- **SBF Disassembler:** Converts on-chain bytecode back into readable instruction sets.
+- **Pattern Matching:** Scans for known malicious signatures (e.g., restricted transfer logic).
+- **Heuristic Scorer:** Assigns a risk probability score (0-100) based on control flow analysis.
+
+### Integration Layer
+Designed for seamless adoption by wallets and aggregators.
+- **Low Latency:** Optimized for sub-50ms response times.
+- **Universal Compatibility:** Works with any SPL token or Anchor program.
 
 ---
 ## Usage
@@ -70,18 +76,12 @@ if (report.isSafe) {
 ```
 
 ---
-## Architecture
+## Features
 
-### The "Microscope" Engine (Rust Core)
-The core analysis engine, written in pure Rust for performance.
-- **SBF Disassembler:** Converts on-chain bytecode back into readable instruction sets.
-- **Pattern Matching:** Scans for known malicious signatures (e.g., restricted transfer logic).
-- **Heuristic Scorer:** Assigns a risk probability score (0-100) based on control flow analysis.
-
-### Integration Layer
-Designed for seamless adoption by wallets and aggregators.
-- **Low Latency:** Optimized for sub-50ms response times.
-- **Universal Compatibility:** Works with any SPL token or Anchor program.
+* **Instant Audit:** Analyze new token launches immediately upon deployment.
+* **Honeypot Detection:** Identifies code logic that prevents selling.
+* **Authority Tracking:** Alerts if mint/freeze authorities are still active.
+* **Type-Safe SDK:** Complete TypeScript bindings for frontend integration.
 
 ---
 ## Installation

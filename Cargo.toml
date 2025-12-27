@@ -7,7 +7,7 @@ members = [
 resolver = "2"
 
 [workspace.package]
-version = "0.1.0"
+version = "0.1.1"
 edition = "2021"
 authors = ["lenz-security <254960442+lenz-security@users.noreply.github.com>"]
 license = "MIT"
